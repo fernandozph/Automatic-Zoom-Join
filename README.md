@@ -13,7 +13,6 @@ This program uses PyAutoGUI to click on the pop-up confirming that the user want
 ### Working on: ###
 * More validation for user inputs
 * End time for meetings to automatically leave
-* Using WebDriverWait instead of time.sleep
 * Possibly using undetected-chromedriver to bypass restrictions on logins through what Google thinks is an "unsecure browser"
 
 ` Made with Mohammed Musawwir and taking inspiration from Sai Anish Malla for PyAutoGUI and datetime. Initially created for Dr. Eric Wu's Information Technology and Cybersecurity class in 2021. Last updated March 2023. `
