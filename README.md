@@ -4,15 +4,25 @@ This a proof of concept and project for my IT/CS2 class that was developed into 
 This program uses Selenium WebDriver to log you in to Zoom, or Google, with the user inputting login method and information.
 * It was challenging to log in to Zoom with Google, as there is no direct link, or idenitfier/name for the buttom, so I had to use XPath.
 
-This program uses PyAutoGUI to click on the pop-up confirming that the user wants to open the Zoom meeting, as that is outside Selenium's scope.
+This program then takes in the time to join and leave the meeting, and when it is time to join uses PyAutoGUI to click on the pop-up confirming that the user wants to open the Zoom meeting, as that is outside Selenium's scope.
+If zoom attempts to download, the program will use PyAutoGUI to click on the "keep download" button, and then launch zoom.
+Finally, at the end time of the meeting it uses the taskkill command to terminate the Zoom.exe process.
+
+## Update 1.2 ##
+* Fixed error with Zoom starting a download instead of launching
+* Fixed error with program crashing after sign in is blocked by Google, now asks the user to pick a method again
+* Added confidence modifiers to PyAutoGUI functions due to screenshot pixels not matching what PyAutoGUI sees
+* Added end time, terminates Zoom.exe process when the time is reached
+    ### Quality of Life Changes: ###
+    * Improved efficiency with functions, added docstrings
+    * Improved readability of input statements
+    * Added more error handling; added an option to submit a new issue on GitHub
 
 ### Errors: ###
 * There is an error with Chrome blocking sign in due to an "unsecure browser" because it is automated.
-* There is an error with Zoom not launching because it tries to install Zoom again
+* There is an error with Zoom sign in timing out, likely due to the same reason.
 
 ### Working on: ###
-* More validation for user inputs
-* End time for meetings to automatically leave
 * Possibly using undetected-chromedriver to bypass restrictions on logins through what Google thinks is an "unsecure browser"
 
 ` Made with Mohammed Musawwir and taking inspiration from Sai Anish Malla for PyAutoGUI and datetime. Initially created for Dr. Eric Wu's Information Technology and Cybersecurity class in 2021. Last updated March 2023. `
