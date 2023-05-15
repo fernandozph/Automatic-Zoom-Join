@@ -1,3 +1,4 @@
+import os
 import time
 from datetime import datetime
 import subprocess
@@ -163,8 +164,16 @@ def is_valid_time(specified_time):
 
 
 meeting_link = input("Please paste the meeting link\n")  # no validation
-zoom_join_button = input(
-    "What is the file path of the zoom join button?\n")  # no validation
+
+# getting the path for the zoom_join_button
+if os.path.isfile('zoom_join_button.png'):
+    # default path for the zoom_join_button
+    zoom_join_button = 'zoom_join_button.png'
+else:
+    # not found at default path, will ask until a valid file path is given
+    zoom_join_button = input("What is the file path of the zoom join button?\n") 
+    while not os.path.isfile(zoom_join_button):
+        zoom_join_button = input("Could not find a file there. Please re-enter the file path of the zoom join button?\n")
 
 join_time = input("What time would you like to join the meeting? (military time)\n")  # needs to be in format 00:00
 # getting valid join time, restarting if it is invalid
@@ -221,9 +230,29 @@ while zoom_launched not in {"Y", "N", "O"}:
 if zoom_launched == "N":
     # "N" means that instead of launching, Zoom tried to download.
     # so this clicks on the keep button and then clicks on the finished download to open it.
-    keep_zoom_button = input("What is the file path of the keep zoom button?\n")
+    
+    # getting the file path for the keep_zoom button
+    if os.path.isfile('keep_zoom.png'):
+        # default path for the keep_zoom button
+        keep_zoom_button = 'keep_zoom.png'
+    else:
+        # not found at default path, will ask until a valid file path is given
+        keep_zoom_button = input("What is the file path of the keep zoom button?\n")
+        while not os.path.isfile(keep_zoom_button):
+            keep_zoom_button = input("Could not find a file there. Please re-enter the file path of the keep zoom button?\n")
+    
     locate_and_click(keep_zoom_button, 3)
-    zoom_download_button = input("What is the file path of the zoom download button?\n")
+    
+    # getting the file path for the zoom_download button
+    if os.path.isfile('zoom_download.png'):
+        # default path for the zoom_download button
+        zoom_download_button = 'zoom_download.png'
+    else:
+        # not found at the default path, will ask until a valid file path is given
+        zoom_download_button = input("What is the file path of the zoom download button?\n")
+        while not os.path.isfile(zoom_download_button):
+            zoom_download_button = input("Could not find  a file there. Please re-enter the file path of the zoom download button")
+
     locate_and_click(zoom_download_button, 3)
 elif zoom_launched == "O":
     # "O" means that there was an unforeseen error, takes user to GitHub to open a new issue.
