@@ -9,7 +9,7 @@ If zoom attempts to download, the program will use PyAutoGUI to click on the "ke
 Finally, at the end time of the meeting it uses the taskkill command to terminate the Zoom.exe process.
 
 ## Update 1.3 ##
-* Added default filepaths for the various buttons so the user doesn't have to input the filepath every time, unless the default filepath is invalid
+* Added default filepaths for the various "buttons" so that the user doesn't have to input the filepath every time, unless the default filepath is invalid
 
 ## Update 1.2 ##
 * Fixed error with Zoom starting a download instead of launching
@@ -28,4 +28,4 @@ Finally, at the end time of the meeting it uses the taskkill command to terminat
 ### Working on: ###
 * Possibly using undetected-chromedriver to bypass restrictions on logins through what Google thinks is an "unsecure browser"
 
-` Initially created with Mohammed Musawwir for Dr. Eric Wu's Information Technology and Cybersecurity class in 2021, and taking inspiration from sai Anish Malla for PyAutoGUI and datetime. Improved to add more functionality, error handling, and bug fixes. Last updated May 2023. `
+` Initially created with Mohammed Musawwir for Dr. Eric Wu's Information Technology and Cybersecurity class in 2021 to showcase the use of Selenium. We took inspiration from Sai Anish Malla for PyAutoGUI and datetime. Revisited in 2023 to add more functionality, error handling, and bug fixes. Last updated May 2023. `
